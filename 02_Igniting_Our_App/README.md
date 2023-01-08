@@ -1,3 +1,134 @@
 # 02 - Igniting Our App Theory
 
-# COMING SOON..
+## #1 What is `npm` ?
+
+`npm` is the default package manager for the JavaScript runtime environment Node.js. It is used to install and manage packages (libraries, frameworks, utilities, etc.) that are available on the npm registry. With `npm`, you can install packages from the npm registry, share your own packages with others, and manage dependencies in your projects.
+
+## #2 What is `Parcel/Webpack` ? Why do we need it ?
+
+Parcel/Webpack are bundlers. They are tools that take your code, along with its dependencies, and package it all up into a single bundle or a few bundles that can be loaded by a web browser.
+
+> "Parcel is a BEAST" <br> - Akshay Saini
+
+We need bundlers (specifically Parcel) because they do a lot of things for us including but not limited to the following:
+
+- Created a live server
+- HMR - Hot Module Replacement, File Watcher Algorithm - C++
+- Bundling
+- Minify
+- Cleaning Code (like removing logs)
+- Dev and Prod Builds
+- Caching while in development
+- Image Optimization
+- Browser Compatability
+- HTTPS on dev
+- Zero Config
+  <br>.
+  <br>.
+  <br>and a lot more
+
+## #3 What is `.parcel-cache` ?
+
+`.parcel-cache` is a directory that is used by the `Parcel` bundler to store cached files. When `Parcel` processes your code, it will cache the results in the `.parcel-cache` directory to speed up future builds. This can help reduce the time it takes to rebuild your application when you make changes, as `Parcel` can reuse the cached files instead of having to process them again.
+
+## #4 What is `npx` ?
+
+npx is a command-line tool that is included with npm, the package manager for JavaScript. It allows us to run packages that are present in our project.
+
+For example, if we want to create a production build using parcel we use the npx command:
+
+```
+npx parcel build index.html
+```
+
+NOTE: Replace index.html with the entry point of your application
+
+## #5 What is difference between `dependencies` vs `devDependencies` ?
+
+In a **package.json** file, the `dependencies` field is used to specify the packages that your project depends on, i.e., the packages that are required to run your application in production. These packages will be installed when a user runs npm install or yarn install.
+
+On the other hand, the `devDependencies` field is used to specify the packages that are only needed for development, i.e., packages that are used for testing, building, and other tasks that are not necessary for running the application in production.
+
+## #6 What is Tree Shaking ?
+
+**Tree Shaking** refers to the ability to remove `unused code` from your project. This can help reduce the size of your codebase and improve the performance of your application.
+
+Tree shaking is typically achieved through the use of a bundler like `parcel`, which can analyze your code and identify which parts of it are not being used. The bundler can then remove this unused code when it creates the final bundle, resulting in a smaller, more efficient bundle that contains only the code that is actually needed to run your application.
+
+## #7 What is Hot Module Replacement ?
+
+**"Hot Module Replacement" (HMR)** is a feature that allows you to update parts of your application without having to fully reload the page. This can be a useful tool for improving the development experience, as it allows you to see your changes in real-time without having to manually refresh the page.
+
+## #8 List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+
+5 Superpowers of Parcel :
+
+1. Bundling
+1. Minify
+1. Caching while in development
+1. Cleaning Code (like removing logs)
+1. HMR - Hot Module Replacement
+
+- **Bundling -** Bundling refers to the process of taking multiple JavaScript files and combining them into a single file (or a few files) that can be loaded by a web browser. Bundling is often used to reduce the number of HTTP requests that a browser has to make to load an application, which can improve the performance of the application.
+- **Minify -** Minifying refers to the process of removing unnecessary characters from your code to reduce its size. This can include things like whitespace, comments, and other characters that are not needed for the code to execute. Minifying your code can improve the performance of your application.
+- **HMR (Hot Module Replacement) -** A feature that allows you to update parts of your application without having to fully reload the page. This can be a useful tool for improving the development experience, as it allows you to see your changes in real-time without having to manually refresh the page.
+
+## #9 What is `.gitignore` ? What should we add and not add into it ?
+
+`.gitignore` is a file that is used to specify patterns of files that should be ignored by Git when you are committing code to a repository.
+
+It is typically used to exclude files that are generated by the build process, such as compiled code or temporary files, as well as files that are specific to your development environment, such as local configuration files or credentials.
+
+**Add** - Dir or files that can be auto generated.
+<br>For example: node_modules, .parcel-cache, etc
+
+**Do Not Add** - Files that are necessary for the application to function properly.
+<br>For example: package.json, package-lock.json, etc
+
+## #10 What is the difference between `package.json` and `package-lock.json` ?
+
+**package.json**
+
+- `package.json` is a file that is used to manage the dependencies of a project. It contains a list of the packages that your project depends on, as well as other metadata about your project, such as the project's name, version, and scripts.
+
+- Allows you to specify the dependencies of your project using version ranges, such as ^1.2.3, which means "any version that starts with 1.2.3". This allows you to update your dependencies to newer versions without having to manually update the package.json file.
+
+- `package.json` is intended to be edited by developers
+
+**package-lock.json**
+
+- `package-lock.json` on the other hand is a file that is used to lock the dependencies of a project to a specific version. It contains a detailed, exact list of the packages and their dependencies that were installed in your project, as well as the version numbers of those packages.
+
+- `package-lock.json` specifies the exact version of each dependency that was installed in your project, so you don't have to worry about updating your dependencies manually.
+
+- `package-lock.json` is generated automatically by npm and should not be edited directly.
+
+## #11 Why should I not modify `package-lock.json` ?
+
+package-lock.json specifies the exact version of each dependency that was installed in your project and changing that will cause a lot of dependency issues.
+
+> NEVER TOUCH `package-lock.json`
+
+## #12 What is `node_modules` ? Is it a good idea to push that on git ?
+
+`node_modules` is a directory that consists of all the project dependencies.
+
+No, it is not a good idea as `node_modules` are huge in size (sometime in GBs). Moreover everything inside the `node_modules` directory can be regenerated as we have all the packages and their exact versions in `package-lock.json`.
+
+## #13 What is the `dist` folder ?
+
+The dist folder (short for "distribution") is a directory that is used to store the output of a build process. It typically contains the files that are ready to be deployed to a production environment, such as minified JavaScript files, compiled CSS, and other static assets.
+
+## #14 What is `browserlists` ?
+
+It is used to specify on which browsers and their respective versions we wish our app to be compatible with.
+The more the better.
+
+We can configure this in our `package.json`
+
+```
+  "browserslist": [
+    "defaults and supports es6-module",
+    "maintained node versions"
+  ]
+```
