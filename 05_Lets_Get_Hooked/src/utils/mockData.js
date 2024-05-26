@@ -1,25 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className = 'logo'src = 'https://as2.ftcdn.net/v2/jpg/05/24/99/27/1000_F_524992735_KKhYaN2E502aCAb5yDyKNfbxXH5XPucA.jpg'/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const resObj = [
+export const resObj = [
     {
         "info": {
           "id": "393840",
@@ -863,43 +842,3 @@ const resObj = [
         "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
       },
 ]
-
-const RestaurantCard = ({resData}) => {
-
-    const { name, cuisines, costForTwo,cloudinaryImageId} = resData?.info;
-    const { avgRating, deliveryTime } = resData?.info?.sla;
-    return (
-        <div className="card">
-                    <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId }></img>
-                    <h3>{name}</h3>
-                    <h4>{cuisines.join(', ')}</h4>
-                    <h4>{avgRating}</h4>
-                    <h4>{deliveryTime} minutes</h4>
-                    <h4>{costForTwo}/2</h4>
-        </div>
-    );
-}
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search bar aaega idhar (meow!)</div>
-            <div className="card-container">
-                {resObj.map((restaurant) => (
-                    <RestaurantCard key = {restaurant.info.id} resData = {restaurant} />
-                ))}
-            </div>
-        </div>
-    )
-}
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
