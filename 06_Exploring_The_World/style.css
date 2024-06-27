@@ -41,3 +41,18 @@
     display: flex;
     flex-wrap: wrap;
 }
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    width: 200px;
+    height: 450px;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(128, 128, 128, 0.168);
+}
+
+.filter{
+    display: flex;
+}
