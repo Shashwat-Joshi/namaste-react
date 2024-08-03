@@ -1,0 +1,71 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid seagreen;
+}  
+.logo{
+    width: 200px;
+}  
+.nav-items{
+    font-size: 24px;
+}
+.nav-items > ul {
+    display: flex;
+}
+.nav-items > ul > li{
+    padding: 0px 20px;
+    list-style: none;
+}
+.body{
+    border: 1px solid rgb(36, 139, 132);
+    background-color: rgba(42, 118, 126, 0.471);
+}
+.search{
+    padding: 10px;
+}
+.card{
+    /* height: 450px; */
+    width: 200px;
+    padding: 5px;
+    background-color: rgba(128, 128, 128, 0.819);
+    margin: 5px;
+}
+.card img{
+    max-width: 100%;
+}
+.card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    width: 200px;
+    height: 450px;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(128, 128, 128, 0.168);
+}
+
+.filter{
+    display: flex;
+}
+
+.user-div{
+    width: 400px;
+    height: 300px;
+    border: 2px dashed rgb(11, 53, 98);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.updateBtn{
+    width: 200px;
+}
