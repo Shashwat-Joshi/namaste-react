@@ -1,0 +1,16 @@
+.itemCard {
+    padding: 5px 5px;
+    margin: 5px 5px;
+    height: 300px;
+    width: 70%;
+    border: 2px dashed purple;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.itemPrice{
+    color: green;
+    font-weight: bold;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
